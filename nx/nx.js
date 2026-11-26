@@ -313,7 +313,7 @@ if (h1 && c.name.toLowerCase() === h1) c.current = true;
 if (c.url && c.url.replace(/[?#].*$/, '').replace(/\/$/, '') === here) c.current = true;
 });
 var src = v.currentSrc || v.getAttribute('src') || (v.querySelector('source') || {}).src;
-var VID = { 'pewter oak': 'Pewter', 'espresso oak': 'Espresso', 'chestnut oak': 'Chestnut', 'classic oak': 'Classic', 'cinnamon oak': 'Cinnamon', 'summer wheat oak': 'Summer_Wheat' };
+var VID = { 'antique sawmill oak': 'Antique_Sawmill', 'pewter oak': 'Pewter', 'espresso oak': 'Espresso', 'chestnut oak': 'Chestnut', 'classic oak': 'Classic', 'cinnamon oak': 'Cinnamon', 'summer wheat oak': 'Summer_Wheat' };
 var curC = colours.filter(function (c) { return c.current; })[0], vk = curC && VID[curC.name.toLowerCase()];
 if (vk && window.__nxBase) src = window.__nxBase + 'assembly/NuStairz_' + vk + '_white.mp4';
 NS3D(wrap, { colours: colours, video: src, texts: texts, title: '' }).catch(function (e) { console.error('NS3D', e); });
