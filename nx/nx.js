@@ -90,7 +90,7 @@ var body = el('div', 'nx-body');
 var txt = '<p><b>' + p.label + '.</b> ' + p.text + '</p>';
 if (p.id === 'colours' && colours.length) {
 txt += '<div class="nx-sw">' + colours.map(function (c, k) {
-return '<a data-k="' + k + '" href="' + (c.url || '#') + '" aria-label="' + c.name + '" title="' + c.name + '"><i class="nx-swi" style="background-image:url(\'' + c.img + '\')"></i></a>';
+return '<a data-k="' + k + '" href="' + (c.url || '#') + '" aria-label="' + c.name + '" title="' + c.name + '"><i class="nx-swi" style="background-image:url(\'' + c.img + '\') !important"></i></a>';
 }).join('') + '</div><div class="nx-swname"></div>';
 }
 body.innerHTML = txt;
@@ -232,7 +232,7 @@ if (vid) { if (on) { vid.currentTime = 0; vid.play().catch(function () {}); } el
 var dot = root.querySelector('.nx-dot'), nm = root.querySelector('.nx-swname');
 function setColour(k) {
 var c = colours[k]; if (!c) return; cur = k;
-if (dot) dot.style.backgroundImage = 'url(\'' + c.img + '\')';
+if (dot) dot.style.setProperty('background-image', 'url(\'' + c.img + '\')', 'important');
 root.querySelectorAll('.nx-sw a').forEach(function (b, i) { b.classList.toggle('is-on', i === k); });
 if (nm) nm.textContent = c.name;
 loadWood(c.tex || c.img);
