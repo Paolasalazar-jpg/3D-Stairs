@@ -337,7 +337,7 @@ a.addEventListener('mouseenter', function () { nmG.textContent = a.dataset.name;
 a.addEventListener('mouseleave', function () { nmG.textContent = curName; });
 a.addEventListener('click', function (e) { if (a.classList.contains('is-on')) { e.preventDefault(); return; } try { sessionStorage.setItem('nx-open', 'photos'); } catch (err) {} });
 });
-var cw = gal.querySelector('.content-wrapper'); if (cw) cw.parentNode.insertBefore(row, cw.nextSibling); else gal.appendChild(row);
+var gw = gal.querySelector('.gallery-section-wrapper') || gal.querySelector('.gallery'); if (gw) gw.parentNode.insertBefore(row, gw.nextSibling); else (gal.querySelector('.content') || gal).appendChild(row);
 }
 var wantPhotos = false;
 try { wantPhotos = sessionStorage.getItem('nx-open') === 'photos'; if (wantPhotos) sessionStorage.removeItem('nx-open'); } catch (err) {}
